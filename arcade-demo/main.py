@@ -34,7 +34,7 @@ os.chdir(file_path)
 
 
 WIDTH = 800
-HEIGHT = 1000
+HEIGHT = 400
 SPRITE_SCALING = 0.5
 
 class MenuView(arcade.View):
@@ -60,7 +60,7 @@ class InstructionView(arcade.View):
     def on_draw(self):
         arcade.start_render()
         arcade.draw_text("Instructions Screen", WIDTH / 2, HEIGHT / 2,
-                         arcade.color.BLACK, font_size=50, anchor_x="center")
+                         arcade.color.BLACK, font_size=50, anchor_x="left")
         arcade.draw_text("Click to advance", WIDTH / 2, HEIGHT / 2 - 75,
                          arcade.color.GRAY, font_size=20, anchor_x="center")
 
@@ -87,7 +87,7 @@ class GameView(arcade.View):
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
 
-        for i in range(5):
+        for i in range(100):
 
             # Create the coin instance
             coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING / 3)
@@ -100,10 +100,10 @@ class GameView(arcade.View):
             self.coin_list.append(coin)
 
     def on_show(self):
-        arcade.set_background_color(arcade.color.AMAZON)
+        arcade.set_background_color(arcade.color.CHERRY_BLOSSOM_PINK)
 
         # Don't show the mouse cursor
-        self.window.set_mouse_visible(False)
+        self.window.set_mouse_visible(True)
 
     def on_draw(self):
         arcade.start_render()
